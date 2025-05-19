@@ -1,0 +1,49 @@
+Hola, adjuntamos dos posibles resoluciones de los ejercicios 1 y 2 del parcial.
+
+El ejercicio 3 tenía estas posibles respuestas breves:
+
+a. Verdadero o Falso (justificar en ambos casos, en verdadero o falso):
+1. Zombie es un estado posible del sistema operativo Android.
+Verdadero. zombie es un estado posible de los sistemas operativos de
+tipo UNIX, y como Android utiliza internamente el kernel Linux (un
+clon de UNIX open source), entonces Android utiliza ese estado
+tambien.
+
+2. Tanto Windows como Linux utilizan el algoritmo de planificación de
+CPU CFS, porque son
+sistemas operativos más complejos.
+Falso, Linux utiliza ese algoritmo, pero Windows utiliza otro diferente.
+
+3. En el algoritmo de FCFS podría suceder starvation (inanición).
+Verdadero. FCFS asigna la CPU en el orden en que llegan los procesos a
+la cola de listos.  Si un proceso que tiene asignada la CPU no
+finaliza nunca (por ejemplo si contiene una iteración infinita)
+entonces no liberaría nunca la CPU y los demás procesos en la cola de
+listos nunca tendrán la oportunidad de ejecutarse.
+
+b. COMPLETAR
+En XINU :
+El estado de un proceso SLEEPING corresponde al estado "WAITING (o
+bloquead)" en “la teoría”
+El estado de un proceso SUSPENDED corresponde al estado "WAITING (o
+bloqueado)" En “la teoría”
+El estado de un proceso CURRENT corresponde al estado "RUNNING (en
+ejecución)" en la “teoría”.
+
+c. Estado de procesos en XINU.
+Suponga que en una computadora con una única CPU y XINU existe un
+proceso que tiene un bucle ‘for’ infinito, que tiene más prioridad que
+los demás, y que nunca pasa a un estado de durmiendo o bloqueado….
+(Indique cuales opciones debajo son correctas -justifique las
+correctas-)
+1. Los demás procesos eventualmente obtendrán la CPU porque el sistema
+es también round robin.
+2. Los demás procesos en estado de listo nunca obtendrán la CPU y se
+producirá startvation.
+Verdadero. Si el proceso que utiliza la CPU en un bucle infinito tiene
+mayor prioridad que los restantes entonces XINU siempre le asignará la
+CPU. Otros procesos no pueden hacer kill() de este porque no obtendrán
+nunca la CPU.
+3. Los demás procesos podrían intentar hacer un kill() del proceso con
+alta prioridad para matarlo.
+4. Algún proceso obtendrá la CPU luego de 2ms, porque el QUANTUM en XINU es 2ms.

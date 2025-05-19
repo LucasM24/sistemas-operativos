@@ -1,0 +1,51 @@
+Hola, y buen finde largo primero.
+
+Para desarrollar el juego del ahorcado, en lenguaje C, necesitarán
+utilizar arreglos. En C, los arreglos pueden ser de tipos básicos
+inicialmente.
+
+Ejemplo:
+
+int precios[20];
+
+Es un arreglo de 20 elementos, y en cada elemento se puede almacenar
+un valor entero. Ejemplo:
+
+precios[4] = 5000;
+
+Para guardar mensajes o cadenas de caracteres (strings), se utilizan
+arreglos de char. Ejemplo:
+
+char frase[20];
+
+En este arreglo frase[] podemos colocar un mensaje de 19 letras. ¿Por
+qué 19 y no 20?. Esto se debe a que el último elemento de un "string"
+en C debería ser el elemento nulo. El elemento nulo tiene el valor
+cero.
+frase[19] = 0;
+o
+frase[19] = '\0';
+
+Ambas sentencias hacen lo mismo. Colocan en el último lugar del
+arreglo frase el elemento nulo.
+
+En C no se pueden unir "strings" o sumarlas, o restarlas, para crear
+otros strings mas grandes o mas chicos. Se usan funciones de
+biblioteca para lograr algunos procesos.
+
+Les dejamos un ejemplito en C que debería servir como puntapié inicial
+para comenzar a entender los arreglos en C, y que les servirá para
+desarrollar el último ejercicio del tp0 (el ahorcado).
+
+https://se.fi.uncoma.edu.ar/so/misc/strings.c
+(puede tener errores, somos humanos :)
+En el taller-c.pdf pueden encontrar mas información acerca de
+arreglos, strings y constantes de strings.
+
+Atención: cada viernes de práctica es obligatorio entregar un
+ejercicio del TP que finaliza. Por ejemplo, el viernes que viene,
+solicitaremos la entrega de un ejercicio (RESUELTO) del tp0. ¿Cual
+ejercicio?, lo diremos el mismo viernes.
+
+Saludos,
+La cátedra

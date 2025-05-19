@@ -1,0 +1,115 @@
+Hola, buenos días.
+
+Bienvenidos a una nueva edición de Sistemas Operativos I.
+Quienes ya me conocen, sabrán que en lo posible, intento enviar un
+correo de repaso de lo que se vió en la última clase.
+
+Hace dos días iniciamos el cursado. Primero comentamos brevemente los
+detalles administrativos.
+Los docentes son Rafael Zurita, Antonella Torre, y Nicolas Jacznik.
+Los libros principales de la materia son 3:
+Silberschatz, Galvin, Gagne - Operating Systems Concepts - John Wiley
+& Sons; 10 edition (2018) – ISBN 978-1-119-32091-3
+Tanenbaum, Bos – Modern Operating Systems - Prentice Hall; Fifth
+edition. ISBN-13: 9780137618873 (2022 update)
+Douglas Comer - Operating System Design - The Xinu Approach. CRC
+Press, 2015. ISBN : 9781498712439
+No existen esas ediciones en la biblioteca (puede que existan
+ediciones viejas. no las recomiendo ya mucho).
+Quienes se dan maña sabrán que "libgen" puede ser de ayuda. De
+cualquier manera, nosotros ya hicimos una selección de que "cachitos"
+de cada libro para cada tema nos gusta más (qué autor explica cada
+tema mejor). Así que todos esos cachitos (llamados aquí apuntes en
+PDF) están en la web de la materia.
+
+Habrán dos parciales con sus respectivos recuperatorios.
+Dos coloquios para promocionar la materia (para poder acceder al
+coloquio hay que aprobar ambos parciales en la primera instancia, con
+una calificación muy buena).
+
+Realizaremos las actividades de práctica en los laboratorios.
+Escribiremos código utilizando mayormente el lenguaje de programación
+C, por dos motivos:
+1. El código fuente de la mayoría de los sistemas operativos modernos
+está escrito en C, y
+2. El lenguaje C justamente "nació" por la necesidad de poder contar
+con un lenguaje de alto nivel que permita acceder al bajo nivel
+directamente desde el lenguaje.
+
+Además, trabajaremos sobre dos sistemas operativos:
+1. Linux: porque es un sistema operativo moderno, avanzado en
+características (como Windows o MacOS) y open source (podemos acceder
+al código fuente libremente, adaptarlo, modificarlo, y publicar el
+código fuente con o sin modificaciones).
+2. XINU: porque es un sistema operativo también con acceso al código
+fuente, ultra pequeño (unas pocas miles de líneas de código fuente, a
+diferencia de los grandes que tienen millones), académico, y que,
+aunque pequeño, ofrece los servicios básicos que un sistema operativo
+debe proveer a las aplicaciones. Ideal para "meter mano" mientras se
+aprenden algunos conceptos de la materia.
+
+XINU se compila y se utiliza desde Linux, así que los que quieran
+hacer prácticas desde sus compus, deberán contar con una instalación
+de Linux.
+Haremos un día de instalación de GNU/Linux para aquellos que quieran
+asistir (será un día diferente al de clase).
+
+El viernes hablamos también del temario general de la materia: gran
+parte del contenido gira en torno a las "abstracciones" que provee los
+SO modernos, y las primitivas (servicios/system calls) que sirven para
+que las aplicaciones accedan y manipulen esas abstracciones. Por
+ejemplo, la posibilidad de crear y ejecutar muchos procesos (un
+proceso sería una abstracción, y el system call que permite crear un
+proceso una primitiva) concurrentemente, e hilos (threads) dentro de
+los procesos. Y los mecanismos de sincronización, comunicación y
+protección que ofrece los SO a esos procesos.
+Tambien veremos como los SO modernos gestionan la memoria, y le
+ofrecen a las aplicaciones una "memoria virtual".
+Cómo los SO modernos gestionan la E/S básicamente, y ofrecen
+primitivas similares para acceder a los mismos aún si los dispositivos
+de E/S son distintos.
+Cómo los SO modernos ofrecen la abstracción de "archivos y
+directorios" a las aplicaciones, y sus primitivas, en vez de que las
+aplicaciones tengan que acceder a los medios de almacenamiento
+disponibles.
+Y finalmente veremos una introducción a virtualización y sistemas distribuidos.
+Eso sería el temario a grandes rasgos.
+
+Finalmente iniciamos con algo de teoría.
+Conversamos de lo "que es" un sistema operativo (una respuesta corta
+es : es software :) y que "hace concretamente".
+Una de las cosas claves es que las "aplicaciones" sólo pueden usar
+cosas de la compu solicitando "un servicio" al sistema operativo
+(ejemplo: cuando una aplicación programada con objetos quiere crear un
+nuevo objeto, el soporte del lenguaje que "crea" el objeto, deberá
+pedirle primero memoria al SO. Esa petición se llama "system call" o
+"llamada al sistema".
+Finalmente hablamos del modo supervisor y usuario que tienen el hw de
+las CPU modernas, y que les permite al kernel del SO estar en memoria
+"protegido" de las aplicaciones.
+Y cómo una aplicación "realiza un system call", como el sistema
+operativo toma control de la CPU para "gestionar la solicitud
+recibida", y cómo luego se retorna la CPU a la aplicación que pidió un
+servicio.
+
+Para los que no pudieron asistir, (y para los que lo hicieron
+también), hay que leer
+los apuntes (están en la web de la materia,
+https://se.fi.uncoma.edu.ar/so/, sección APUNTES)
+
+- Definición de Sistemas Operativos - Introducción a Xinu
+- System Calls
+
+En clase vimos la definición de lo qué es un sistema operativo de los
+autores Tanenbaum y del libro de Silberschatz. El apunte en la web
+"Definicion de Sistemas Operativos" es del libro de Comer. Así que
+leer ese apunte por favor.
+Y quienes quieran prepararse un poco para la clase que viene puede leer tambien:
+Historia de UNIX, C, Linux
+
+Saludos y buen domingo,
+Rafa
+PD: No pude encontrar la dirección de correo de LOPEZ, ERNESTO
+EZEQUIEL. Si alguien le puede avisar por favor que nos envíe un correo
+así apuntamos su dirección.
+

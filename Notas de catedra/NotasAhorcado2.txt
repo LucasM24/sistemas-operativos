@@ -1,0 +1,64 @@
+Hola, el ejercicio que hay que entregar de manera obligatoria, del tp1
+es el ejercicio 10 (portar el ahorcado a XINU).
+
+Atención: tanto en Linux como en XINU, la idea es utilizar la entrada
+de la terminal o la consola en modo raw (es decir, que al presionar
+una tecla el valor ascii de la misma es recibida directamente po la
+aplicación). Sin tener que presionar ENTER.
+
+En XINU, el modo raw de la CONSOLA (serial) se establece haciendo un
+system call control() con los argumentos CONSOLE y modo raw de la
+siguiente manera:
+
+(en Linux era así:)
+system ("/bin/stty raw");
+
+(en XINU debería ser así:)
+control(CONSOLE, TC_MODER, 0, 0);
+
+para volver al modo normal (o medianamente normal):
+
+(en Linux era así:)
+system ("/bin/stty sane erase ^H");
+
+(en XINU debería ser así:)
+control(CONSOLE, TC_MODEC, 0, 0);
+
+
+Dos notas interesantes del libro de XINU (el que no tenga el libro
+trate de conseguirlo -internet ayuda-):
+
+En la sección 13.6 Implementation Of Preemption se explica en concepto
+de QUANTUM y como lo implementa XINU.
+
+En la sección 13.9 Putting A Process To Sleep se explica los systems
+calls sleep y sleepms, los cuales permiten a un proceso
+voluntariamente "liberar" la CPU durante un tiempo (queda bloqueado
+-sleeping- en XINU).
+
+(El libro de XINU se llama así : autor Douglas Comer - Operating
+System Design - The Xinu Approach. CRC Press, 2015. ISBN :
+9781498712439)
+
+Ultimo detalle: la mayoria de los estados en XINU (ver grafica de
+estados de XINU en los apuntes, slides o libro de XINU) son de
+"bloqueado" en la teoría. Los unicos en los que los procesos no están
+bloqueados son den READY (ese estado es de LISTO) y CURRENT (ese
+estado es EJECUTANDO).
+
+EL estado SUSPEND de XINU no es el estado  LISTO SISPENDIDO o
+BLOQUEADO SUSPENDIDO  visto hoy en la teoria. Esos estados
+"suspendidos" visto hoy a nivel teórico son cuando el sistema
+operativo quita de la memoria un proceso y lo aloja en disco durante
+un tiempo, para liberar memoria. XINU no tiene ese mecanismo
+implementado.
+
+En un rato colocamos una tarea en pedco para subir la entrega del tp1.
+Habrá tiempo hasta mañana 22hs.
+
+APROVECHEN EL TELEGRAM PARA CONSULTAR todo y ayudarse entre todos. La
+clase de consulta de la semana que viene será general así que no habrá
+tiempo en ese momento para "consultar personalmente cada una/o sus
+dudas".
+
+Saludos y buen finde
