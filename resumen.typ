@@ -4,10 +4,11 @@
 
 == Procesos
 
-El kernel tiene la capacidad de poner en ejecución a los programas que se
-encuentran almacenados en el sistema. Cuando un programa se encuentra en
-ejecución lo llamamos *proceso*. El sistema operativo controla la *creación*,
-*ejecución* y *finalización* de procesos.
+El kernel tiene la capacidad de ejecutar programas
+almacenados en el sistema. Cuando un programa se encuentra
+en ejecución lo llamamos *proceso*. El sistema operativo
+controla la *creación*, *ejecución* y *finalización* de
+dicho proceso.
 
 Un proceso se crea cuando:
 
@@ -31,9 +32,10 @@ multiple secciones. Estas secciones son:
   almacenan elementos como parametros, direcciones de retorno y variables
   locales
 
-Podemos ver que las secciones de texto y datos tienen un tamaño fijo es decir
-no cambiar durante el tiempo de ejecución de un programa. Sin embargo las
-secciónes heap y stack pueden crecer o achicarce dinámicamente durante el
+Podemos ver que las secciones de texto y datos tienen un
+tamaño fijo es decir no cambiar durante el tiempo de
+ejecución de un programa. Sin embargo las secciónes heap y
+stack pueden crecer o decrecer dinámicamente durante el
 tiempo de ejecución de un programa.
 
 Cada vez que se llama a una función un registro de activación contiene los
