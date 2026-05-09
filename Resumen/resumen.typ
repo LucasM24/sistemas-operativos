@@ -2,6 +2,80 @@
 
 = Unidad 1
 
+== Cómo Funciona?
+
+Si un proceso está ejecutando un programa en modo usuario y
+necesita un servicio del sistema, como por ejemplo leer
+datos de un archivo, debe ejecutar una instrucción trap para
+transferir el control del procesador al sistema operativo.
+El sistema operativo debe detectar cual es el proceso
+llamador por medio de sus parámetros. Entonces busca la
+llamada al sistema y devuelve el control a la siguiente
+instrucción de la llamada al sistema. Podemos decir que una
+llamada al sistema es como una llamada a procedimiento solo
+que esta no puede acceder al kernel del sistema operativo y
+la llamada la sistema sí.
+Para ejemplificar una llamada al sistema vamos a utilizar el
+system call *read*. Como casi todoas las llamadas al
+sistema, esta es invocada desde un progama C llamando a un
+procedimiento de una librería el cual tiene el mismo nombre
+que la system call *read*.
+
+count = read(fd, buffer, nbytes);
+
+- fd: File descriptor es la ruta en donde se encuentra el
+  archivo que se quiere leer.
+- buffer: Es un puntero en donde se van a guardar los datos
+  de dicho archivo.
+- nbyter: Es la cantidad máxima de bytes que se permite
+  leer.
+
+  Las system call se realizan a traves de una serie de
+  pasos. Utilizaremos *read* como ejemplo:
+
+  + El programa llamador ubica los parametros de manera
+    inversa *de read o de su función main*? dentro del
+    *stack*. Como se muestra en el paso 1-3 en la figura
+    1-17. El primer y tercer parametro son pasador por valor
+    y el segundo es llamado por referencia ya que es un
+    puntero.
+  + Luego se ejecuta la llamada a todos los procedimientos
+    (paso 4)
+  + El procedimiento de la librería probablemente está
+    escrito en assembly por lo tanto coloca el número de la
+    system call en un registro conocido por el sistema
+    operativo (paso 5)
+  + Ejecuta la instrucción trap para cambio de modo usuario
+    a modo kernel y comienza la ejecución en una dirección
+    fija dentro del kernel (paso 6)
+  + La instrucción trap es parecida en cierto sentido a una
+    ejecución de una llamada a rutina en el sentido que la
+    siguiente instrucción a ejecutar se toma de una
+    dirección de memoria lejana y la dirección de retorno es
+    guardada en el stack para utilizarse después. Sin
+    embargo the instrucción *TRAP* se diferencia una llamada
+    a procedimiento de dos formas. Primero tiene un efecto
+    colateral que es que cambia a modo kernel. Segundo, en
+    lugar de ir a una dirección de memoria específica donde
+    el procedimiento está ubicado, la instrucción *TRAP* no
+    puede saltar directamente a una dirección de memoria
+    arbitraria. Dependiendo de la arquitectura solo puede
+    saltar a una dirección fija o hay un campo de 8 bits en
+    la instrucción que nos da el índice a una tabla ubicada
+    en memoria la cual contiene las direcciones a las que
+    puede saltar. Luego el codigo del kernel que le sigue al
+    *trap* examina el número de la system call y despacha el
+    manejador de system calls correspondiente usualmente
+    utilizando la tabla de punteros la cual apunta los
+    distintos manejadores de system calls (paso 7).
+  + En este punto comienza a ejecutarse el manejador de
+    system calls (paso 8)
+  + Una vez terminado el trabajo, se devuelve el control al
+    espacio librerias de usuario indicado por la instrucción
+    *TRAP* (paso 9)
+  + Este procedimiento devuelve un resultado al programa de
+    usuario como toda llamada a procedimientos (paso 10)
+  
 == Procesos
 
 El kernel tiene la capacidad de ejecutar programas
@@ -58,7 +132,7 @@ acuerdo a un identificador único llamado process identifi o pid el cual es usua
 entero. Este identificador puede utilizarse como índice para acceder a varios atributos de un
 procesos dentro del kernel.
 
-#image("Arbol de procesos.jpg")
+#image("/Imagenes/Arbol de procesos.jpg")
 
 Cuando un proceso crea un nuevo proceso existen dos posibilidades con respecto a la ejecución:
   
