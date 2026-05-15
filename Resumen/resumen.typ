@@ -86,10 +86,10 @@ dicho proceso.
 
 Un proceso se crea cuando:
 
-  - En la secuencia de *inicio del sistema*.
-  - Cuando una aplicación realiza un *system call* para crear un proceso.
-  - Cuando un usuario solicita ejecutar un programa ya sea traves de la linea de comandos o
-    haciendo doble click sobre un ejecutable.
+- En la secuencia de *inicio del sistema*.
+- Cuando una aplicación realiza un *system call* para crear un proceso.
+- Cuando un usuario solicita ejecutar un programa ya sea
+	traves de la linea de comandos o haciendo doble click sobre un ejecutable.
 
 El estado de un proceso en ejecución es representado por el valor que tiene el
 registro *program counter* o *PC* y el contenido de los registros del
