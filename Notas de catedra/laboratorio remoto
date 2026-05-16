@@ -1,0 +1,29 @@
+Acceso Remoto a los Laboratorios
+================================
+
+
+Linux
+-----
+
+Con el programa xfreerdp (instalar desde el repositorio de paquetes)
+
+Conectarse con:
+
+xfreerdp    /v:aularemota.fi.uncoma.edu.ar:1199 /u:usuario@est.fi.uncoma.edu.ar
+
+# NOTA: usuario, en el comando anterior, es su usuario en el laboratorio
+
+
+
+Windows
+-------
+
+Con algun programa que realice conexiones RDP. 
+En Windows usualmente se llama "Conexión REMOTA"
+
+Para conectarse especificar:
+
+servidor: aularemota.fi.uncoma.edu.ar
+puerto: 1199 
+usuario: (el usuario que usen en los laboratorios)
+

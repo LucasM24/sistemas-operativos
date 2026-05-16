@@ -1,0 +1,38 @@
+La linea #include <stdio.h> agrega el archivo de cabecera stdio.h el cual
+define constantes, macros, tipos y declara funciones para manejar el flujo de
+salida y entrada de datos. Estas funciones pertencen a la biblioteca estandar
+de C.
+
+En el código del ahorcado las funciones printf() y getchar() pertenecen a este
+archivo de cabecera.
+
+La linea #include <stdlib.h> agrega el archivo de cabecera de la biblioteca
+estándar de propósito general del lenguaje de programación C. Contiene los
+prototipos de funciones de C para gestión de memoria dinámica, control de
+procesos y otras. Las funciones que pertenecen a stdlib.h pueden clasificarse
+en las siguientes categorías: conversión, memoria, control de procesos,
+ordenación y búsqueda, matemáticas.
+
+En el código la función system() pertenece a este archivo de cabecera. La
+función system() permite ejecutar comandos externos al lenguaje de
+programación.
+
+La aplicación stty permite configurar características de la terminal más
+precisamente opciones de entrada y salida del dispositivo de entrada estándar.
+
+La línea system ("/bin/stty raw") ejecuta la aplicación stty con el operando
+raw.  El operando raw indica que las entrada y salidas no son procesadas, los
+datos se envían tal cual son. Por ejemplo ignorar ciertos caracteres, no
+traducir carácteres o evitar señales de interrupción a procesos, inhabilitar
+ciertas combianciones de teclas, etc. Por ejemplo si presionamos ctrl + C el
+proceso no termina y la terminal solo imprime ^C 
+
+La linea system ("/bin/stty sane erase ^H") deshabilita la tecla backspace la
+cual permite borrar caracteres y ahora la función de borrar un caracter se
+realiza con la combinación de teclas ctrl + H
+
+Fuente
+stdio.h: https://www.ibm.com/docs/es/i/7.5?topic=files-stdioh
+stdlib.h: https://es.wikipedia.org/wiki/Stdlib.h
+Información sobre stty: https://pubs.opengroup.org/onlinepubs/9699919799/utilities/stty.html 
+Información sobre el concepto raw: https://stackoverflow.com/questions/22832933/what-does-stty-raw-echo-do-on-os-x#:~:text=The%20raw%20setting%20means%20that,end%20a%20process%2C%20for%20example.

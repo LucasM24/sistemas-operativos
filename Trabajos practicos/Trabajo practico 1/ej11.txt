@@ -1,0 +1,21 @@
+Inciso a)
+
+En el inciso a se produce una promoción automática de expresiones siguiendo la
+siguiente regla: Si ninguno de los operandos es long double, double o float
+entonces se realiza promoción entera sobre ambos operandos. Por eso el
+resultado de esa división es 2.000000. Para arreglar esto basta con hacer un
+casteo explicito en alguno de los operandos en este caso forzamos la conversión
+utilizando el operador cast con lo cual la expresión queda de la siguiente
+manera r = (float) a / b  y el resultado es 2.500000.
+
+Inciso b)
+
+La variable c al ser de tipo int y guardar la división entre dos números int
+almacena solo parte entera del resultado, el cual es c = 0.5. Luego al
+intentar dividir a / c se produce un error ya que intenta dividir por cero.
+Esto se soluciona utilizando el operador cast (float) del lado derecho de la
+expresión de c (c = (float) a / b) y definiendo c como tipo float.
+
+Inciso c)
+
+Se respondió en el archivo ej11.c
